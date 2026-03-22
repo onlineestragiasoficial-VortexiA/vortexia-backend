@@ -1,0 +1,14 @@
+# Inicialize o repositório Git na pasta
+git init
+
+# Adicione todos os arquivos da pasta ao repositório
+git add .
+
+# Faça o primeiro commit
+git commit -m "Primeiro commit do Backend"
+
+# Adicione o repositório remoto (use a URL do seu repositório criado)
+git remote add origin https://github.com/SEU_USUARIO/vortexia-backend.git
+
+# Envie os arquivos para o repositório GitHub
+git push -u origin master
