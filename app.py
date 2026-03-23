@@ -4,8 +4,9 @@ from moviepy.editor import *
 import whisper
 
 app = Flask(__name__)
-model = whisper.load_model("base")
+model = whisper.load_model("base")  # modelo de transcrição
 
+# Cria pastas se não existirem
 for folder in ["uploads", "output_videos"]:
     os.makedirs(folder, exist_ok=True)
 
@@ -20,12 +21,14 @@ def index():
         output_path = f"output_videos/{uid}.mp4"
         audio.save(audio_path)
 
+        # Transcrição do áudio
         result = model.transcribe(audio_path)
         segments = result["segments"]
 
         clips = []
         size = (720, 1280) if format_type=="tiktok" else (1280, 720)
 
+        # Criação dos clipes de texto
         for seg in segments[:10]:
             text = seg["text"]
             duration = max(seg["end"] - seg["start"], 1.5)
