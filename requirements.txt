@@ -1,0 +1,6 @@
+flask
+gunicorn
+moviepy
+imageio-ffmpeg
+openai-whisper
+pillow
